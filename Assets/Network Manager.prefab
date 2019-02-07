@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7502008203658098288}
   - component: {fileID: 4255940919903167374}
   m_Layer: 0
-  m_Name: Network Manager
+  m_Name: Network Manager 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,8 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 6326111428619079541, guid: 7804389962b1d47629295e98d0c79126,
+    type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
