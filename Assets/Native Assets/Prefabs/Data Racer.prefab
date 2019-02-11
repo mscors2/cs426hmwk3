@@ -108,6 +108,7 @@ MonoBehaviour:
   baseSpeed: 25
   strafeSpeed: 15
   jumpForce: 500
+  orb: {fileID: 977410744456228731, guid: 7c91719b7060a4365b857de27c26b220, type: 3}
 --- !u!54 &7296580011718371578
 Rigidbody:
   m_ObjectHideFlags: 0

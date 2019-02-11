@@ -9,11 +9,14 @@ public class PlayerMove : NetworkBehaviour
     public float baseSpeed = 25.0f;
     public float strafeSpeed = 15.0f;
     public float jumpForce = 700.0f;
-    
+    public GameObject orb;
+
     private float boostSecondsLeft = 0.0f;
     private float speedMult = 1.0f;
     private bool bAirborne = false;
     private float dragCache = 0.0f;
+    private int stage;
+    private GameObject orb1, orb2, orb3, orb4;
 
     Rigidbody rb;
 
@@ -21,6 +24,11 @@ public class PlayerMove : NetworkBehaviour
     void Start()
     {
         GetComponentInChildren<MeshRenderer>().material.color = isLocalPlayer ? Color.cyan : Color.magenta;
+        orb1 = Instantiate( orb, new Vector3(  3.00f, 0.50f,  0.00f ), Quaternion.identity ) as GameObject;
+        orb2 = Instantiate( orb, new Vector3( 35.75f, 2.00f,  2.25f ), Quaternion.identity ) as GameObject;
+        orb3 = Instantiate( orb, new Vector3( 35.75f, 2.00f, -2.40f ), Quaternion.identity ) as GameObject;
+        orb4 = Instantiate( orb, new Vector3( 84.00f, 0.50f,  0.00f ), Quaternion.identity ) as GameObject;
+        stage = 0;
     }
 
     // Update is called once per frame
@@ -68,6 +76,28 @@ public class PlayerMove : NetworkBehaviour
             dragCache = rb.drag;
             rb.drag = 0.0f;
         }
+
+        // display orb 1
+        if ( stage == 0 && transform.position.x > -5.0f )
+        {
+            orb1.SetActive( true );
+            stage++;
+        }
+
+        // display orbs 2 and 3
+        if ( stage == 1 && transform.position.x > 26.0f )
+        {
+            orb2.SetActive( true );
+            orb3.SetActive( true );
+            stage++;
+        }
+
+        // display orb 4
+        if (stage == 2 && transform.position.x > 78.0f)
+        {
+            orb4.SetActive(true);
+            stage++;
+        }
     }
 
     public void SpeedBoost( float speedMultiplier, float lengthInSeconds )
@@ -81,6 +111,15 @@ public class PlayerMove : NetworkBehaviour
         // any kind of collision at all will refresh the jump. Not ideal but don't feel like mapping out all the floor items
         bAirborne = false;
         rb.drag = dragCache;
+    }
+
+    private void OnTriggerEnter( Collider other )
+    {
+        if ( other.gameObject.CompareTag("Orb") )
+        {
+            boostSecondsLeft = 2.0f; // boost for 2 seconds
+            speedMult = 1.25f;       // by multiplier 1.25
+        }
     }
 
     public override void OnStartLocalPlayer()
