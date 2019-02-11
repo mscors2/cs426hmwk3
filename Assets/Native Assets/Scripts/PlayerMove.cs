@@ -9,14 +9,13 @@ public class PlayerMove : NetworkBehaviour
     public float baseSpeed = 25.0f;
     public float strafeSpeed = 15.0f;
     public float jumpForce = 700.0f;
-    public GameObject orb;
 
     private float boostSecondsLeft = 0.0f;
     private float speedMult = 1.0f;
     private bool bAirborne = false;
     private float dragCache = 0.0f;
-    private int stage;
     private GameObject orb1, orb2, orb3, orb4;
+    private int stage;
 
     Rigidbody rb;
 
@@ -24,10 +23,14 @@ public class PlayerMove : NetworkBehaviour
     void Start()
     {
         GetComponentInChildren<MeshRenderer>().material.color = isLocalPlayer ? Color.cyan : Color.magenta;
-        orb1 = Instantiate( orb, new Vector3(  3.00f, 0.50f,  0.00f ), Quaternion.identity ) as GameObject;
-        orb2 = Instantiate( orb, new Vector3( 35.75f, 2.00f,  2.25f ), Quaternion.identity ) as GameObject;
-        orb3 = Instantiate( orb, new Vector3( 35.75f, 2.00f, -2.40f ), Quaternion.identity ) as GameObject;
-        orb4 = Instantiate( orb, new Vector3( 84.00f, 0.50f,  0.00f ), Quaternion.identity ) as GameObject;
+        orb1 = GameObject.Find( "Speed Orbs/Orb1" );
+        orb1.SetActive( false );
+        orb2 = GameObject.Find( "Speed Orbs/Orb2" );
+        orb2.SetActive( false );
+        orb3 = GameObject.Find( "Speed Orbs/Orb3" );
+        orb3.SetActive( false );
+        orb4 = GameObject.Find( "Speed Orbs/Orb4" );
+        orb4.SetActive( false );
         stage = 0;
     }
 
