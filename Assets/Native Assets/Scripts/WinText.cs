@@ -19,7 +19,7 @@ public class WinText : NetworkBehaviour
     {
         if (Player.gameObject.tag == "Player")
         {
-            if (isLocalPlayer)
+            if (Player.gameObject.GetComponent<PlayerMove>().isLocalPlayer)
             {
                 //SHOW WIN TEXT
                 winText.SetActive(true);

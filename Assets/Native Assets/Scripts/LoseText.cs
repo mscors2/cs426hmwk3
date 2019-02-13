@@ -18,7 +18,7 @@ public class LoseText : NetworkBehaviour
     {
         if (Player.gameObject.tag == "Player")
         {
-            if (!isLocalPlayer)
+            if ( !Player.gameObject.GetComponent<PlayerMove>().isLocalPlayer )
             {
                 loseText.SetActive(true);
             }

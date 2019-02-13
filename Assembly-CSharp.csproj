@@ -64,6 +64,7 @@
     <Compile Include="Assets\Native Assets\Scripts\LoseText.cs" />
     <Compile Include="Assets\Native Assets\Scripts\Orb.cs" />
     <Compile Include="Assets\Native Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Native Assets\Scripts\SmoothFollow.cs" />
     <Compile Include="Assets\Native Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Native Assets\Scripts\WinText.cs" />
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">

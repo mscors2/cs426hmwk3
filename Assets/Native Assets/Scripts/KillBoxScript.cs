@@ -23,6 +23,7 @@ public class KillBoxScript : MonoBehaviour
         if ( other.gameObject.CompareTag( "Player" ) )
         {
             other.gameObject.transform.position = respawnPoint.transform.position;
+            other.gameObject.GetComponent<Rigidbody>().velocity.Set( 0, 0, 0 );
         }
     }
 }
