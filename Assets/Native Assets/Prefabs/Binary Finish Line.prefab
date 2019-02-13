@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3904598665992452243}
   - component: {fileID: 1849150885692230555}
   m_Layer: 0
-  m_Name: Finish Line
+  m_Name: Binary Finish Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2503665b299a470c9c917a9c0726a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 0}
+  winText: {fileID: 8783576883274975709, guid: 8ed8f18463ee54d668e98d577adaa74d, type: 3}
 --- !u!114 &3904598665992452243
 MonoBehaviour:
   m_ObjectHideFlags: 0
